@@ -1,23 +1,18 @@
-<h1>Listing categories</h1>
+<div data-role="header">
+  <h1>Categories</h1>
+  <%= link_to 'Add', new_category_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div data-role="content">
+  <ul data-role="listview">
+    <% @categories.each do |category| %>
+      <% if category.parent.nil? %>
+      <li>
+        <%= link_to category.name, category %>
+        <%= link_to 'edit category', edit_category_path(category), "data-icon" => "gear" %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>

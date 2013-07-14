@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @categories = Category.all
     @category = Category.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +26,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
+    @category.parent = "Auto"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +43,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(params[:category])
+    @category.parent = "Auto"
 
     respond_to do |format|
       if @category.save

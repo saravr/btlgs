@@ -1,10 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div data-role="header">
+  <h1>Category - </h1>
+  <%= link_to 'Add', new_category_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+<div data-role="content">
+  <ul data-role="listview">
+    <% @categories.each do |cat| %>
+      <% if cat.parent == "Auto" %>
+      <li>
+        <%= link_to cat.name, cat%>
+        <%= link_to 'edit category', edit_category_path(cat), "data-icon" => "gear" %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
 
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
