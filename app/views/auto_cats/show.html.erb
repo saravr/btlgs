@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @auto_cat.name %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @auto_cat.parent %>
+</p>
+
+
+<%= link_to 'Edit', edit_auto_cat_path(@auto_cat) %> |
+<%= link_to 'Back', auto_cats_path %>

@@ -7,3 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Category.create(name: 'Auto')
 Category.create(name: 'Home')
+AutoCat.create(name: 'Vehicle')
+AutoCat.create(name: 'Insurance')
+HomeCat.create(name: 'Utilities')
+HomeCat.create(name: 'Mortgage')

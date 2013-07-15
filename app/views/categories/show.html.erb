@@ -5,13 +5,18 @@
 
 <div data-role="content">
   <ul data-role="listview">
-    <% @categories.each do |cat| %>
-      <% if cat.parent == "Auto" %>
+    <% case @category.name %>
+      <% when "Auto" %>
+        <% @sub_cats = AutoCat.all %>
+      <% when "Home" %>
+        <% @sub_cats = HomeCat.all %>
+    <% end %>
+
+    <% @sub_cats.each do |cat| %>
       <li>
-        <%= link_to cat.name, cat%>
+        <%= link_to cat.name, cat %>
         <%= link_to 'edit category', edit_category_path(cat), "data-icon" => "gear" %>
       </li>
-      <% end %>
     <% end %>
   </ul>
 </div>

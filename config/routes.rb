@@ -1,7 +1,7 @@
 Btlgs::Application.routes.draw do
-  resources :categories do
-    resources :categories
-  end
+  resources :categories
+  resources :auto_cats
+  resources :home_cats
 
 
   # The priority is based upon order of creation:

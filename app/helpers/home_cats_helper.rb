@@ -1,0 +1,2 @@
+module HomeCatsHelper
+end
